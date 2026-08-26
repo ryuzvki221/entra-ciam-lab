@@ -1,24 +1,19 @@
 import { ProfileController } from "@/services/profile-controller";
+
 const controller = new ProfileController();
 
 export async function GET() {
   try {
     const profile = await controller.getProfile();
 
-    if (!profile) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     return Response.json(profile);
   } catch (error) {
+    if (error?.message === "Unauthorized") {
+      return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
     console.error("GET /api/v1/users/me:", error);
 
-    return Response.json(
-      {
-        error: "Unable to retrieve user profile",
-      },
-      { status: 500 },
-    );
+    return Response.json({ error: "Internal error" }, { status: 500 });
   }
 }
 
