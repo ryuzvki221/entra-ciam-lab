@@ -1,0 +1,16 @@
+*********External identity provider settings *******
+****************************************************
+
+Default domain redirect URIs
+        https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2
+        https://<tenant-subdomain>.ciamlogin.com/<tenant-ID>/federation/oauth2
+        https://<tenant-subdomain>.ciamlogin.com/<tenant-subdomain>.onmicrosoft.com/federation/oauth2
+
+Custom Url domain redirect URIs
+        https://<custom-domain>/<tenant-ID>/federation/oauth2
+        https://<custom-domain>/<tenant-subdomain>.onmicrosoft.com/federation/oauth2
+
+
+
+Graph api test
+        https://graph.microsoft.com/v1.0/identity/authenticationEventsFlows/d272ac05-f73c-4d07-9005-3a65514fbf23
